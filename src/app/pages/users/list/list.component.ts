@@ -41,6 +41,16 @@ export class ListComponent implements OnInit{
     this.loadUsers();
   }
 
+  deleteuser(event:any,userid:number){
+    if(confirm('are you sure you want to delete this data ?'))
+    {
+      event.target.innerText="Delting...";
+      this.userService.destroyUser(userid).subscribe((res:any)=>{
+        this.loadUsers();
+      })
+    }
+  }
+
 
 
 }

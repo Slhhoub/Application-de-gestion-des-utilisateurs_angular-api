@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row mt-5">
+    <div class="col">
+      <h1 class="font-weight-bold">Edit Users</h1>
+    </div>
+    <div class="col d-flex align-items-center justify-content-end">
+      <a href="users" type="button" class="btn btn-primary">
+        Back <i class="fas fa-arrow-left"></i>
+      </a>
+    </div>
+  </div>
+  <div class="col-lg-6 m-auto shadow p-3 mb-5 bg-body rounded mt-5">
+    <form (ngSubmit)="updateUsers()">
+      <div *ngIf="user">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" [(ngModel)]="user.email" name="email">
+          <span *ngIf="errors.name" class="text-danger">{{ errors.email }}</span>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="exampleInputFirstName" [(ngModel)]="user.first_name" name="first_name">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="exampleInputLastName" [(ngModel)]="user.last_name" name="last_name">
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Avatar URL</label>
+          <input type="file" class="form-control" id="exampleInputAvatar" [(ngModel)]="user.avatar" name="avatar">
+        </div>
+        <button type="submit" class="btn btn-primary">update</button>
+      </div>
+    </form>
+  </div>
+</div>

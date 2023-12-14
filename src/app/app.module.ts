@@ -12,6 +12,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { FormsModule } from '@angular/forms';
+import { EditComponent } from './pages/users/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,14 @@ import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-transla
     HomeComponent,
     ListComponent,
     AddComponent,
+    EditComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     NgbPaginationModule,
+    FormsModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
