@@ -1,14 +1,35 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Formation Angular</a>
+    <!-- Replace the text content with the Font Awesome icon -->
+    <a class="navbar-brand" href="#"><i class="fas fa-counter"></i> {{ 'data.title' | translate }}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="d-flex">
-      <select name="" id="">
-        <option value="">US</option>
-        <option value="">FR</option>
-      </select>
+      <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <!-- Replace the existing flag icon with the image for English -->
+            <img [src]="getImagePath()" alt="English Flag" width="20" height="20">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+            <li>
+              <!-- Replace the existing flag icon with the image for English -->
+              <a class="dropdown-item" href="#" (click)="switchLanguage('en')">
+                <img src="assets/images/en.png" alt="English Flag" width="20" height="20"> EN
+              </a>
+            </li>
+            <li>
+              <!-- Replace the existing flag icon with the image for French -->
+              <a class="dropdown-item" href="#" (click)="switchLanguage('fr')">
+                <img src="assets/images/fr.png" alt="French Flag" width="20" height="20"> FR
+              </a>
+            </li>
+
+            <!-- Add more languages as needed -->
+          </ul>
+        </li>
+      </ul>
     </div>
   </div>
 </nav>

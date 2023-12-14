@@ -11,6 +11,7 @@ export class UsersService {
 
   public perPage=6;
 
+
   constructor(private http:HttpClient) { }
 
   geUsers(page:number):Observable<HttpUsersListResponse>{

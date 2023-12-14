@@ -8,10 +8,10 @@ import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ListComponent } from './pages/users/list/list.component';
 import { AddComponent } from './pages/users/add/add.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
-
-
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -26,10 +26,27 @@ import { NgbPaginationModule } from '@ng-bootstrap/ng-bootstrap';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbPaginationModule
-
+    NgbPaginationModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private translate: TranslateService) {
+    // Set the default language to English
+    translate.setDefaultLang('en');
+    // Use the default language
+    translate.use('en');
+  }
+ }
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
